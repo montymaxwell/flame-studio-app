@@ -1,0 +1,67 @@
+.node-container {
+ width: 100%;
+ height: 120px;
+ position: relative;
+}
+.node-container.active {
+ padding: 0.35rem;
+}
+.node-container.absolute {
+ position: absolute !important;
+}
+.node-container.active > 
+.node-control-container >
+.node-control {
+ border: 1px solid #1b7fd1;
+}
+.node-container.active >
+.node-control-container >
+.node-control > .node-resizer {
+ display: block;
+ pointer-events: all !important;
+}
+
+.node-control-container {
+ width: 100%;
+ height: 100%;
+ position: relative;
+}
+.node-control {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+}
+.node-resizer {
+ z-index: 2;
+ width: 10px;
+ height: 10px;
+ display: none;
+ cursor: pointer;
+ position: absolute;
+ background: #1b7fd1;
+}
+.node-resizer.nw {
+ top: -5px;
+ left: -5px;
+}
+.node-resizer.ne {
+ top: -5px;
+ right: -5px;
+}
+.node-resizer.sw {
+ left: -5px;
+ bottom: -5px;
+}
+.node-resizer.se {
+ right: -5px;
+ bottom: -5px;
+}
+.node {
+ width: 100%;
+ height: 100%;
+ position: relative;
+}
+.node > * {
+ width: 100%;
+ height: 100%;
+}

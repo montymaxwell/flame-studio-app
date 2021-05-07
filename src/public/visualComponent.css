@@ -1,0 +1,46 @@
+.container {
+ width: 100%;
+ height: 100%;
+ margin-left: auto;
+ margin-right: auto;
+ background: #9b9b9b;
+}
+
+.row,
+.navbar {
+ display: flex;
+ flex: 0 0 100%;
+ flex-wrap: wrap;
+ background: #ffffff;
+}
+.column {
+ flex: 0 0 auto;
+}
+
+.heading {
+ margin: 0px;
+ line-height: 1;
+ font-weight: 600;
+ font-size: 2.5rem;
+ color: #ffffff;
+ background: #363636;
+}
+.paragraph {
+ margin: 0px;
+ line-height: 1;
+ font-weight: 500;
+ font-size: 1rem;
+ color: #ffffff;
+ background: #363636;
+}
+
+.node.button {
+
+}
+.node.anchor {
+
+}
+
+.navbar {
+
+}

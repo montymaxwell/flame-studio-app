@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="visualComponent.css"/>
+  <link rel="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="node.css"/>
+  <title>FlameStudio</title>
+</head>
+<body class="fs-app night">
+  <main class="fs-app-container flex flex-column">
+    <nav class="fs-app-menubar">
+      <div class="menu-item">File</div>
+      <div id="settings" class="menu-item">Settings</div>
+      <div class="menu-item">Help</div>
+      <div class="window-actions flex">
+        <div id="minimize">
+          <span>_</span>
+        </div>
+        <div id="maximize">
+          <span>□</span>
+        </div>
+        <div id="exit">
+          <span>&times;</span>
+        </div>
+      </div>
+    </nav>
+    <div class="window">
+      <div id="popWinClosed" class="popup-win">
+        <div class="popup-win-content flex">
+          <div class="overview-win sidebar-bg-2 flex flex-column">
+            <div class="options-win">
+              <div class="overview"></div>
+            </div>
+            <div class="options-win">
+              <div class="overview">APP SETTINGS</div>
+              <div class="options-content">
+                <div data-toggle="appearanceSettings" class="options active">Appearance</div>
+                <div data-toggle="keybindSettings" class="options">Keybinds</div>
+              </div>
+            </div>
+          </div>
+          <div class="window sidebar-bg-1">
+            <div class="settings-win fluid flex flex-column">
+              <div id="appearanceSettings" class="fluid">
+                <div class="title">APPEARANCE</div>
+                <div class="settings-tab">
+                  <div class="options-title">THEME</div>
+                  <div class="option-theme" data-value="light"><div></div>Light</div>
+                  <div class="option-theme active" data-value="night"><div></div>Night ( Default : Preferred )</div>
+                  <div class="option-theme" data-value="dark"><div></div>Dark</div>
+                </div>
+                <div class="settings-tab">
+                  <div class="options-title">CUSTOM</div>
+                  <div class="sub-option-title">App Background :</div>
+                  <div class="fluid flex">
+                    <div class="color-block"><div class="color-bubble red"></div></div>
+                    <div class="color-block"><div class="color-bubble blue"></div></div>
+                    <div class="color-block"><div class="color-bubble yellow"></div></div>
+                  </div>
+                  <div class="sub-option-title">Sidebar Background :</div>
+                  <div class="fluid flex">
+                    <div class="color-block"><div class="color-bubble red"></div></div>
+                    <div class="color-block"><div class="color-bubble blue"></div></div>
+                    <div class="color-block"><div class="color-bubble yellow"></div></div>
+                  </div>
+                  <div class="sub-option-title">Text Color :</div>
+                  <div class="fluid flex">
+                    <div class="color-block"><div class="color-bubble red"></div></div>
+                    <div class="color-block"><div class="color-bubble blue"></div></div>
+                    <div class="color-block"><div class="color-bubble yellow"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div id="keybindSettings" class="fluid hide">
+                <div class="title">KEYBINDS</div>
+                <div class="settings-tab">
+                  <div class="keybind-option fluid flex">
+                    <div class="options-title">Deselect All</div>
+                    <div class="options-inp">
+                      <input type="text" placeholder="Ctrl" />
+                      <input type="text" placeholder="R" />
+                    </div>
+                  </div>
+                </div>
+                <div class="settings-tab">
+                  <div class="keybind-option fluid flex">
+                    <div class="options-title">Duplicate Node</div>
+                    <div class="options-inp">
+                      <input type="text" placeholder="Shift" />
+                      <input type="text" placeholder="D" />
+                    </div>
+                  </div>
+                </div>
+                <div class="settings-tab">
+                  <div class="keybind-option fluid flex">
+                    <div class="options-title">Delete Node</div>
+                    <div class="options-inp">
+                      <input type="text" placeholder="Shift" />
+                      <input type="text" placeholder="R" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="window">
+              <div id="exitSettings">
+                <span>&times;</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="win-flex-1 win-bg-2 br">
+        <div class="item-manager active">
+          <div class="title">Grid<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="item bl" data-elem="div" data-class="container">Container</div>
+            <div class="item bl" data-elem="div" data-class="row">Row</div>
+            <div class="item bl" data-elem="div" data-class="column">Column</div>
+          </div>
+        </div>
+        <div class="item-manager active">
+          <div class="title">Text<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="item bl text-component" data-elem="h1" data-class="heading">Heading</div>
+            <div class="item bl text-component" data-elem="p" data-class="paragraph">Paragraph</div>
+          </div>
+        </div>
+        <div class="item-manager active">
+          <div class="title">Controls<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="item bl" data-elem="button" data-class="button">Button</div>
+            <div class="item bl" data-elem="a" data-class="anchor">Link</div>
+          </div>
+        </div>
+        <div class="item-manager active">
+          <div class="title">Page<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="item bl" data-elem="nav" data-class="navbar">Navbar</div>
+            <div class="item bl" data-elem="header" data-class="header">Header</div>
+            <div class="item bl" data-elem="main" data-class="main">Main</div>
+            <div class="item bl" data-elem="footer" data-class="footer">Footer</div>
+          </div>
+        </div>
+      </div>
+      <div class="window app-bg-1 flex-column">
+        <div class="dom-editing-nav fluid flex bb">
+          <div class="screen-viewport-nav">
+            <div class="small-icon zoom-in">
+              <img src="./icons/zoom-in.svg" alt="">
+              <div class="screen-size">Zoom-in</div>
+            </div>
+            <div class="small-icon zoom-out">
+              <img src="./icons/zoom-out.svg" alt="">
+              <div class="screen-size">Zoom-out</div>
+            </div>
+            <div class="small-icon flip">
+              <img src="./icons/flip.svg" alt="">
+              <div class="screen-size">Rotate</div>
+            </div>
+            <div id="dom-width"></div>
+            <div id="dom-height"></div>
+            <div id="dom-zoom"></div>
+            <div class="mpos"></div>
+          </div>
+          <div class="screen-resolutions-nav">
+            <div class="small-icon emulate-screen">
+              <img src="./icons/extra-small-screen.svg" alt=""/>
+              <div class="screen-size">320</div>
+            </div>
+            <div class="small-icon emulate-screen">
+              <img src="./icons/small-screen.svg" alt=""/>
+              <div class="screen-size">576</div>
+            </div>
+            <div class="small-icon emulate-screen">
+              <img src="./icons/medium-screen.svg" alt=""/>
+              <div class="screen-size">768</div>
+            </div>
+            <div class="small-icon emulate-screen">
+              <img src="./icons/large-screen.svg" alt=""/>
+              <div class="screen-size">992</div>
+            </div>
+            <div class="small-icon emulate-screen">
+              <img src="./icons/extra-large-screen.svg" alt=""/>
+              <div class="screen-size">1200</div>
+            </div>
+          </div>
+        </div>
+        <div class="window workspace-window">
+          <div class="workspace scroll-style">
+            <div class="document-container">
+              <div id="document" class="document">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="win-flex-1 win-bg-2 bl">
+        <div class="item-manager active">
+          <div class="title">Properties<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="app-form">
+              <div class="label">Name :</div>
+              <div class="form-input">
+                <div class="input-layout one-input">
+                  <input id="nameEditor" type="text" spellcheck="false" placeholder="Name"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-manager active">
+          <div class="title">Transform<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="app-form">
+              <div class="label">Position :</div>
+              <div class="form-input">
+                <div class="input-layout two-input x-input">
+                  <span>X</span>
+                  <input id="posX" type="text" spellcheck="false" placeholder="X"/>
+                </div>
+                <div class="input-layout two-input y-input">
+                  <span>Y</span>
+                  <input id="posY" type="text" spellcheck="false" placeholder="Y"/>
+                </div>
+              </div>
+            </div>
+            <div class="app-form">
+              <div class="label">Scale :</div>
+              <div class="form-input">
+                <div class="input-layout two-input x-input">
+                  <span>X</span>
+                  <input id="scaleX" type="text" spellcheck="false" placeholder="X"/>
+                </div>
+                <div class="input-layout two-input y-input">
+                  <span>Y</span>
+                  <input id="scaleY" type="text" spellcheck="false" placeholder="Y"/>
+                </div>
+              </div>
+            </div>
+            <div class="app-form">
+              <div class="label">Rotate :</div>
+              <div class="form-input">
+                <div class="input-layout two-input x-input">
+                  <span>X</span>
+                  <input id="rotX" type="text" spellcheck="false" placeholder="X"/>
+                </div>
+                <div class="input-layout two-input y-input">
+                  <span>Y</span>
+                  <input id="rotY" type="text" spellcheck="false" placeholder="Y"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-manager active">
+          <div class="title">Styles<span><img src="./icons/sort-down.svg" alt=""></span></div>
+          <div class="contents">
+            <div class="styles-form">
+              <div class="form-input">
+                <div class="input-layout one-input">
+                  <span>Font Size : </span>
+                  <input id="fontSize" type="text" spellcheck="false" placeholder="16px"/>
+                </div>
+              </div>
+            </div>
+            <div class="styles-form">
+              <div class="form-input">
+                <div class="input-layout one-input">
+                  <span>Font Weight : </span>
+                  <input id="fontWeight" type="text" spellcheck="false" placeholder="600"/>
+                </div>
+              </div>
+            </div>
+            <div class="styles-form">
+              <div class="form-input">
+                <div class="input-layout one-input">
+                  <span>Font Color : </span>
+                  <input id="textColor" value="#ffffff" type="color" name="" id="">
+                </div>
+              </div>
+            </div>
+            <div class="styles-form">
+              <div class="form-input">
+                <div class="input-layout one-input">
+                  <span>Background Color : </span>
+                  <input id="bgColor" value="#ffffff" type="color" name="" id="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="../scripts/main.js"></script>
+</body>
+</html>
